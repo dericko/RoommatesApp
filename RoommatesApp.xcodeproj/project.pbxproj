@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */; };
+		CB876DA31AEBF74F006761A5 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */; };
+		CB876DA61AEBF75A006761A5 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876DA51AEBF75A006761A5 /* TaskViewController.m */; };
+		CBF019941AEBCD7B008F5DB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019931AEBCD7B008F5DB5 /* main.m */; };
+		CBF019971AEBCD7B008F5DB5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019961AEBCD7B008F5DB5 /* AppDelegate.m */; };
+		CBF0199D1AEBCD7B008F5DB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CBF0199B1AEBCD7B008F5DB5 /* Main.storyboard */; };
+		CBF0199F1AEBCD7B008F5DB5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CBF0199E1AEBCD7B008F5DB5 /* Images.xcassets */; };
+		CBF019A21AEBCD7B008F5DB5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF019A01AEBCD7B008F5DB5 /* LaunchScreen.xib */; };
+		CBF019AE1AEBCD7B008F5DB5 /* RoommatesAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019AD1AEBCD7B008F5DB5 /* RoommatesAppTests.m */; };
+		CBF019B91AEBD4B5008F5DB5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019B81AEBD4B5008F5DB5 /* User.m */; };
+		CBF019BE1AEBD537008F5DB5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019BD1AEBD537008F5DB5 /* LoginViewController.m */; };
+		CBF019C11AEBD541008F5DB5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019C01AEBD541008F5DB5 /* RegisterViewController.m */; };
+		CBF019D41AEBDDA9008F5DB5 /* SessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF019D31AEBDDA9008F5DB5 /* SessionManager.m */; };
+		F9B2C61AF34CD314D9897A71 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A0E96B58B971C18B2685C6D /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CBF019A81AEBCD7B008F5DB5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CBF019861AEBCD7B008F5DB5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBF0198D1AEBCD7B008F5DB5;
+			remoteInfo = RoommatesApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A0E96B58B971C18B2685C6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		82C4425AAE077C96F02C1E4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		835672F1575F2F399AA2B96C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB876D9E1AEBF6EE006761A5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		CB876DA11AEBF74F006761A5 /* PaymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentsViewController.h; sourceTree = "<group>"; };
+		CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
+		CB876DA41AEBF75A006761A5 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
+		CB876DA51AEBF75A006761A5 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		CBF0198E1AEBCD7B008F5DB5 /* RoommatesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoommatesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF019921AEBCD7B008F5DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF019931AEBCD7B008F5DB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CBF019951AEBCD7B008F5DB5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		CBF019961AEBCD7B008F5DB5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		CBF0199C1AEBCD7B008F5DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CBF0199E1AEBCD7B008F5DB5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CBF019A11AEBCD7B008F5DB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		CBF019A71AEBCD7B008F5DB5 /* RoommatesAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoommatesAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBF019AC1AEBCD7B008F5DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CBF019AD1AEBCD7B008F5DB5 /* RoommatesAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoommatesAppTests.m; sourceTree = "<group>"; };
+		CBF019B71AEBD4B5008F5DB5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		CBF019B81AEBD4B5008F5DB5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		CBF019BC1AEBD537008F5DB5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CBF019BD1AEBD537008F5DB5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CBF019BF1AEBD541008F5DB5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		CBF019C01AEBD541008F5DB5 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		CBF019D21AEBDDA9008F5DB5 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		CBF019D31AEBDDA9008F5DB5 /* SessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBF0198B1AEBCD7B008F5DB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9B2C61AF34CD314D9897A71 /* Pods.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF019A41AEBCD7B008F5DB5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FD9243ED0D336B577C59DB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				835672F1575F2F399AA2B96C /* Pods.debug.xcconfig */,
+				82C4425AAE077C96F02C1E4F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92A64CCE0EAF89406B323649 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A0E96B58B971C18B2685C6D /* Pods.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB876D9D1AEBF697006761A5 /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				CB876DA41AEBF75A006761A5 /* TaskViewController.h */,
+				CB876DA51AEBF75A006761A5 /* TaskViewController.m */,
+			);
+			name = Tasks;
+			sourceTree = "<group>";
+		};
+		CBF019851AEBCD7B008F5DB5 = {
+			isa = PBXGroup;
+			children = (
+				CBF019901AEBCD7B008F5DB5 /* RoommatesApp */,
+				CBF019AA1AEBCD7B008F5DB5 /* RoommatesAppTests */,
+				CBF0198F1AEBCD7B008F5DB5 /* Products */,
+				3FD9243ED0D336B577C59DB8 /* Pods */,
+				92A64CCE0EAF89406B323649 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CBF0198F1AEBCD7B008F5DB5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBF0198E1AEBCD7B008F5DB5 /* RoommatesApp.app */,
+				CBF019A71AEBCD7B008F5DB5 /* RoommatesAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBF019901AEBCD7B008F5DB5 /* RoommatesApp */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019951AEBCD7B008F5DB5 /* AppDelegate.h */,
+				CBF019961AEBCD7B008F5DB5 /* AppDelegate.m */,
+				CBF019BA1AEBD4BC008F5DB5 /* Model */,
+				CBF019C51AEBD5C8008F5DB5 /* Networking */,
+				CBF019BB1AEBD4D1008F5DB5 /* ViewControllers */,
+				CBF0199B1AEBCD7B008F5DB5 /* Main.storyboard */,
+				CBF0199E1AEBCD7B008F5DB5 /* Images.xcassets */,
+				CBF019A01AEBCD7B008F5DB5 /* LaunchScreen.xib */,
+				CBF019911AEBCD7B008F5DB5 /* Supporting Files */,
+			);
+			path = RoommatesApp;
+			sourceTree = "<group>";
+		};
+		CBF019911AEBCD7B008F5DB5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019921AEBCD7B008F5DB5 /* Info.plist */,
+				CBF019931AEBCD7B008F5DB5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBF019AA1AEBCD7B008F5DB5 /* RoommatesAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019AD1AEBCD7B008F5DB5 /* RoommatesAppTests.m */,
+				CBF019AB1AEBCD7B008F5DB5 /* Supporting Files */,
+			);
+			path = RoommatesAppTests;
+			sourceTree = "<group>";
+		};
+		CBF019AB1AEBCD7B008F5DB5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019AC1AEBCD7B008F5DB5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CBF019BA1AEBD4BC008F5DB5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019B71AEBD4B5008F5DB5 /* User.h */,
+				CBF019B81AEBD4B5008F5DB5 /* User.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CBF019BB1AEBD4D1008F5DB5 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019C21AEBD549008F5DB5 /* Authentication */,
+				CBF019C31AEBD56D008F5DB5 /* Chat */,
+				CBF019C41AEBD58E008F5DB5 /* Payments */,
+				CB876D9D1AEBF697006761A5 /* Tasks */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CBF019C21AEBD549008F5DB5 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019BC1AEBD537008F5DB5 /* LoginViewController.h */,
+				CBF019BD1AEBD537008F5DB5 /* LoginViewController.m */,
+				CBF019BF1AEBD541008F5DB5 /* RegisterViewController.h */,
+				CBF019C01AEBD541008F5DB5 /* RegisterViewController.m */,
+			);
+			name = Authentication;
+			sourceTree = "<group>";
+		};
+		CBF019C31AEBD56D008F5DB5 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				CB876D9E1AEBF6EE006761A5 /* ChatViewController.h */,
+				CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */,
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		CBF019C41AEBD58E008F5DB5 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				CB876DA11AEBF74F006761A5 /* PaymentsViewController.h */,
+				CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */,
+			);
+			name = Payments;
+			sourceTree = "<group>";
+		};
+		CBF019C51AEBD5C8008F5DB5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				CBF019D21AEBDDA9008F5DB5 /* SessionManager.h */,
+				CBF019D31AEBDDA9008F5DB5 /* SessionManager.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CBF0198D1AEBCD7B008F5DB5 /* RoommatesApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBF019B11AEBCD7B008F5DB5 /* Build configuration list for PBXNativeTarget "RoommatesApp" */;
+			buildPhases = (
+				A06C738744D6DCCAED7BEBE6 /* Check Pods Manifest.lock */,
+				CBF0198A1AEBCD7B008F5DB5 /* Sources */,
+				CBF0198B1AEBCD7B008F5DB5 /* Frameworks */,
+				CBF0198C1AEBCD7B008F5DB5 /* Resources */,
+				B91EF777D7D99B0716528599 /* Copy Pods Resources */,
+				BF1B2FAF8B382EEE89B80E6E /* Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoommatesApp;
+			productName = RoommatesApp;
+			productReference = CBF0198E1AEBCD7B008F5DB5 /* RoommatesApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CBF019A61AEBCD7B008F5DB5 /* RoommatesAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBF019B41AEBCD7B008F5DB5 /* Build configuration list for PBXNativeTarget "RoommatesAppTests" */;
+			buildPhases = (
+				CBF019A31AEBCD7B008F5DB5 /* Sources */,
+				CBF019A41AEBCD7B008F5DB5 /* Frameworks */,
+				CBF019A51AEBCD7B008F5DB5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CBF019A91AEBCD7B008F5DB5 /* PBXTargetDependency */,
+			);
+			name = RoommatesAppTests;
+			productName = RoommatesAppTests;
+			productReference = CBF019A71AEBCD7B008F5DB5 /* RoommatesAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBF019861AEBCD7B008F5DB5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0620;
+				ORGANIZATIONNAME = DerickSam;
+				TargetAttributes = {
+					CBF0198D1AEBCD7B008F5DB5 = {
+						CreatedOnToolsVersion = 6.2;
+					};
+					CBF019A61AEBCD7B008F5DB5 = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = CBF0198D1AEBCD7B008F5DB5;
+					};
+				};
+			};
+			buildConfigurationList = CBF019891AEBCD7B008F5DB5 /* Build configuration list for PBXProject "RoommatesApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CBF019851AEBCD7B008F5DB5;
+			productRefGroup = CBF0198F1AEBCD7B008F5DB5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBF0198D1AEBCD7B008F5DB5 /* RoommatesApp */,
+				CBF019A61AEBCD7B008F5DB5 /* RoommatesAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CBF0198C1AEBCD7B008F5DB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF0199D1AEBCD7B008F5DB5 /* Main.storyboard in Resources */,
+				CBF019A21AEBCD7B008F5DB5 /* LaunchScreen.xib in Resources */,
+				CBF0199F1AEBCD7B008F5DB5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF019A51AEBCD7B008F5DB5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A06C738744D6DCCAED7BEBE6 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		B91EF777D7D99B0716528599 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF1B2FAF8B382EEE89B80E6E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBF0198A1AEBCD7B008F5DB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF019B91AEBD4B5008F5DB5 /* User.m in Sources */,
+				CBF019D41AEBDDA9008F5DB5 /* SessionManager.m in Sources */,
+				CBF019C11AEBD541008F5DB5 /* RegisterViewController.m in Sources */,
+				CB876DA31AEBF74F006761A5 /* PaymentsViewController.m in Sources */,
+				CB876DA61AEBF75A006761A5 /* TaskViewController.m in Sources */,
+				CBF019971AEBCD7B008F5DB5 /* AppDelegate.m in Sources */,
+				CBF019941AEBCD7B008F5DB5 /* main.m in Sources */,
+				CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */,
+				CBF019BE1AEBD537008F5DB5 /* LoginViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CBF019A31AEBCD7B008F5DB5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBF019AE1AEBCD7B008F5DB5 /* RoommatesAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CBF019A91AEBCD7B008F5DB5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBF0198D1AEBCD7B008F5DB5 /* RoommatesApp */;
+			targetProxy = CBF019A81AEBCD7B008F5DB5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CBF0199B1AEBCD7B008F5DB5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBF0199C1AEBCD7B008F5DB5 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CBF019A01AEBCD7B008F5DB5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CBF019A11AEBCD7B008F5DB5 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CBF019AF1AEBCD7B008F5DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CBF019B01AEBCD7B008F5DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CBF019B21AEBCD7B008F5DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 835672F1575F2F399AA2B96C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RoommatesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CBF019B31AEBCD7B008F5DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 82C4425AAE077C96F02C1E4F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RoommatesApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		CBF019B51AEBCD7B008F5DB5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RoommatesAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoommatesApp.app/RoommatesApp";
+			};
+			name = Debug;
+		};
+		CBF019B61AEBCD7B008F5DB5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = RoommatesAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoommatesApp.app/RoommatesApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBF019891AEBCD7B008F5DB5 /* Build configuration list for PBXProject "RoommatesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBF019AF1AEBCD7B008F5DB5 /* Debug */,
+				CBF019B01AEBCD7B008F5DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBF019B11AEBCD7B008F5DB5 /* Build configuration list for PBXNativeTarget "RoommatesApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBF019B21AEBCD7B008F5DB5 /* Debug */,
+				CBF019B31AEBCD7B008F5DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBF019B41AEBCD7B008F5DB5 /* Build configuration list for PBXNativeTarget "RoommatesAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBF019B51AEBCD7B008F5DB5 /* Debug */,
+				CBF019B61AEBCD7B008F5DB5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBF019861AEBCD7B008F5DB5 /* Project object */;
+}
