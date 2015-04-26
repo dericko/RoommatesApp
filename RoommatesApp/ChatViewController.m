@@ -38,7 +38,7 @@
     _socket = [[SocketIOClient alloc] initWithSocketURL:kBASE_URL options:nil];
     
     // Socket connected
-    [_socket on: @"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+    [_socket on:@"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
         NSLog(@"socket connected");
         
         

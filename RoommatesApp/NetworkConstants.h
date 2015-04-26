@@ -11,6 +11,6 @@
 
 // For Local Testing switch base urls
 //#define kBASE_URL @"localhost:8080"
-#define kBASE_URL @"http://ec2-54-69-179-20.us-west-2.compute.amazonaws.com/"
+#define kBASE_URL @"http://ec2-54-69-179-20.us-west-2.compute.amazonaws.com:8080"
 
 #endif
