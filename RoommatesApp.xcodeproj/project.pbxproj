@@ -43,6 +43,7 @@
 		CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentsViewController.m; sourceTree = "<group>"; };
 		CB876DA41AEBF75A006761A5 /* TaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaskViewController.h; sourceTree = "<group>"; };
 		CB876DA51AEBF75A006761A5 /* TaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaskViewController.m; sourceTree = "<group>"; };
+		CB946BB21AEC9F61002D8B4B /* NetworkConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkConstants.h; sourceTree = "<group>"; };
 		CBF0198E1AEBCD7B008F5DB5 /* RoommatesApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoommatesApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBF019921AEBCD7B008F5DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CBF019931AEBCD7B008F5DB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -225,6 +226,7 @@
 			children = (
 				CBF019D21AEBDDA9008F5DB5 /* SessionManager.h */,
 				CBF019D31AEBDDA9008F5DB5 /* SessionManager.m */,
+				CB946BB21AEC9F61002D8B4B /* NetworkConstants.h */,
 			);
 			name = Networking;
 			sourceTree = "<group>";

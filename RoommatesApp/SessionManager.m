@@ -7,8 +7,7 @@
 //
 
 #import "SessionManager.h"
-
-static NSString * const kBaseURl = @"http://localhost:8080/";
+#import "NetworkConstants.h"
 
 @implementation SessionManager
 
@@ -18,7 +17,7 @@ static NSString * const kBaseURl = @"http://localhost:8080/";
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         // Make shared instance
-        _sharedManager = [[SessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBaseURl]];
+        _sharedManager = [[SessionManager alloc] initWithBaseURL:[NSURL URLWithString:kBASE_URL]];
         
         // Requests and responses in JSON
         [_sharedManager setRequestSerializer:[AFJSONRequestSerializer serializer]];
