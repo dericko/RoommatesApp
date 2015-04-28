@@ -7,10 +7,18 @@
 //
 
 #import "RegisterViewController.h"
+#import "SessionManager.h"
+#import "User.h"
+
+#define safeSet(d,k,v) if (v) d[k] = v;
+
+
 
 @interface RegisterViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
 
 @end
 
@@ -19,6 +27,37 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(NSMutableDictionary *)registerDictionary{
+    NSMutableDictionary *toSerialize = [NSMutableDictionary dictionary];
+    safeSet(toSerialize, @"username", _usernameField.text);
+    safeSet(toSerialize, @"password", _passwordField.text);
+    return toSerialize;
+}
+
+-(IBAction)registerPressed:(id)sender{
+    NSLog(@"Pressed");
+    
+    SessionManager *sharedManager = [SessionManager sharedManager];
+    
+    [sharedManager POST:@"register"
+             parameters:[self registerDictionary]
+                success:^(NSURLSessionDataTask *task, id responseObject) {
+                    // Success
+                    NSDictionary *responseDict = (NSDictionary *)responseObject;
+                    NSLog(@"RES AS DICT\n%@", [responseDict description]);
+                    User *user = [User currentUser];
+                    [user loginForUser:responseDict];
+                    _errorLabel.text = @"SUCCESS!";
+                    [self performSegueWithIdentifier:@"LoadHomepage" sender:self];
+                }
+                failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    // Failure
+                    NSLog(@"FAILURE : %@", error);
+                    _errorLabel.text = @"ERROR";
+
+                }];
 }
 
 - (void)didReceiveMemoryWarning {
