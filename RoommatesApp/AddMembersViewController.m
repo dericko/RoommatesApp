@@ -25,6 +25,9 @@
     _addedMembersArray = [NSMutableArray arrayWithArray: @[]];
     _prefixResults = [NSMutableArray arrayWithArray: @[]];
     
+    self.addMembersTable.dataSource = self;
+    self.addedMembersTable.dataSource = self;
+    
     self.addMembersTable.delegate = self;
     self.addedMembersTable.delegate = self;
     // Do any additional setup after loading the view.
@@ -47,6 +50,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSLog(@"numrows");
     if ([tableView isEqual:_addedMembersTable]){
         return [_addedMembersArray count];
     } else{
@@ -57,6 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     NSDictionary *selectedMember = nil;
+    NSLog(@"Cell");
     if ([tableView isEqual:_addMembersTable]){
 //        NSDictionary *selectedMember = [_prefixResults ob]
         selectedMember = [_prefixResults objectAtIndex:indexPath.row];
@@ -69,7 +74,6 @@
         
     } else if([tableView isEqual:_addedMembersTable]){
         selectedMember = [_addedMembersArray objectAtIndex:indexPath.row];
-
         cell = [tableView dequeueReusableCellWithIdentifier:@"AddedMemberCell"];
     }
     cell.textLabel.text = [selectedMember valueForKey:@"username"];
@@ -114,7 +118,9 @@
     NSMutableDictionary *toSerialize = [[NSMutableDictionary alloc] init];
     [toSerialize setValue:prefixText forKey:@"prefix"];
     [sharedManager GET:@"getUsersWithPrefix" parameters:toSerialize success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSLog(@"Success");
         NSArray *responseArray = (NSArray *)responseObject;
+        NSLog(@"%@", responseArray);
         _prefixResults = [NSMutableArray arrayWithArray:responseArray];
         [_addMembersTable reloadData];
         [_addedMembersTable reloadData];

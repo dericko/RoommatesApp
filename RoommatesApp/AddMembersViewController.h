@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddMembersViewController : UIViewController <UITableViewDelegate>
+@interface AddMembersViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end
