@@ -7,6 +7,8 @@
 //
 
 #import "PaymentsViewController.h"
+#import "User.h"
+#import "NetworkConstants.h"
 
 @interface PaymentsViewController ()
 
@@ -17,7 +19,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
+    
+// TODO Add method: venmoLoggedIn to user
+    BOOL loggedIn = [[User currentUser] isLoggedIn];
+    
+    if (loggedIn) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kVENMO_AUTH_URL]];
+    }
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
