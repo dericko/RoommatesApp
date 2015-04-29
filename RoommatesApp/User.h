@@ -10,12 +10,13 @@
 
 @interface User : NSObject
 
+@property (strong, nonatomic) NSString *username;
+@property (strong, nonatomic) NSString *userId;
+
 + (User *)currentUser;
 - (User *)loginForUser:(NSDictionary *)userObject;
-- (NSString *)getUsername;
-- (NSString *)getHash;
-- (NSString *)getSalt;
-- (NSArray *)getGroups;
+- (NSString *)username;
+- (NSString *)userId;
 
 - (BOOL)isLoggedIn;
 - (void)logout;
