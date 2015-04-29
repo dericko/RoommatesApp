@@ -65,6 +65,10 @@
 
 - (void)sendMessage {
     
+    if ([_textField.text isEqualToString:@""]) {
+        return;
+    }
+    
     // Display to self
     NSLog(@"SEND MESSAGE CALLED");
     NSString *message = _textField.text;

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1C4345561AF1056200A9E199 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4345551AF1056200A9E199 /* SocketManager.m */; };
 		1C6696271AEF4D87004234EC /* AddMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6696261AEF4D87004234EC /* AddMembersViewController.m */; };
+		CB2E25331AF0ACAA00E204D8 /* SearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2E25321AF0ACAA00E204D8 /* SearchGroupViewController.m */; };
 		CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */; };
 		CB876DA31AEBF74F006761A5 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */; };
 		CB876DA61AEBF75A006761A5 /* TaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876DA51AEBF75A006761A5 /* TaskViewController.m */; };
@@ -43,6 +44,8 @@
 		3A0E96B58B971C18B2685C6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C4425AAE077C96F02C1E4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		835672F1575F2F399AA2B96C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		CB2E25311AF0ACAA00E204D8 /* SearchGroupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchGroupViewController.h; sourceTree = "<group>"; };
+		CB2E25321AF0ACAA00E204D8 /* SearchGroupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchGroupViewController.m; sourceTree = "<group>"; };
 		CB876D9E1AEBF6EE006761A5 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		CB876DA11AEBF74F006761A5 /* PaymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentsViewController.h; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 			children = (
 				1C6696251AEF4D87004234EC /* AddMembersViewController.h */,
 				1C6696261AEF4D87004234EC /* AddMembersViewController.m */,
+				CB2E25311AF0ACAA00E204D8 /* SearchGroupViewController.h */,
+				CB2E25321AF0ACAA00E204D8 /* SearchGroupViewController.m */,
 			);
 			name = Settings;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				CB876DA61AEBF75A006761A5 /* TaskViewController.m in Sources */,
 				CBF019971AEBCD7B008F5DB5 /* AppDelegate.m in Sources */,
 				1C6696271AEF4D87004234EC /* AddMembersViewController.m in Sources */,
+				CB2E25331AF0ACAA00E204D8 /* SearchGroupViewController.m in Sources */,
 				CBF019941AEBCD7B008F5DB5 /* main.m in Sources */,
 				CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */,
 				1C4345561AF1056200A9E199 /* SocketManager.m in Sources */,
