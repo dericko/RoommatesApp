@@ -31,31 +31,32 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if ([tableView isEqual:_addedMembersTable]){
-        return [_addedMembersArray count];
-    } else{
-        return [_prefixResults count];
-    }
+//    if ([tableView isEqual:_addedMembersTable]){
+//        return [_addedMembersArray count];
+//    } else{
+//        return [_prefixResults count];
+//    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     NSDictionary *selectedMember = nil;
-    if ([tableView isEqual:_addMembersTable]){
-        //        NSDictionary *selectedMember = [_prefixResults ob]
-        selectedMember = [_prefixResults objectAtIndex:indexPath.row];
-        if ([self insideAddedMembersArrayAlready:selectedMember]){
-            cell = [tableView dequeueReusableCellWithIdentifier:@"AlreadyAddedMemberCell"];
-        }
-        else{
-            cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectiveMemberCell"];
-        }
-        
-    } else if([tableView isEqual:_addedMembersTable]){
-        selectedMember = [_addedMembersArray objectAtIndex:indexPath.row];
-        cell = [tableView dequeueReusableCellWithIdentifier:@"AddedMemberCell"];
-    }
-    cell.textLabel.text = [selectedMember valueForKey:@"username"];
+//    if ([tableView isEqual:_addMembersTable]){
+//        //        NSDictionary *selectedMember = [_prefixResults ob]
+//        selectedMember = [_prefixResults objectAtIndex:indexPath.row];
+//        if ([self insideAddedMembersArrayAlready:selectedMember]){
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"AlreadyAddedMemberCell"];
+//        }
+//        else{
+//            cell = [tableView dequeueReusableCellWithIdentifier:@"ProspectiveMemberCell"];
+//        }
+//        
+//    } else if([tableView isEqual:_addedMembersTable]){
+//        selectedMember = [_addedMembersArray objectAtIndex:indexPath.row];
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"AddedMemberCell"];
+//    }
+//    cell.textLabel.text = [selectedMember valueForKey:@"username"];
     return cell;
 }
 
@@ -73,19 +74,19 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    if ([tableView isEqual:_addMembersTable]){
-        NSDictionary *selectedMember = (NSDictionary *) [_prefixResults objectAtIndex:indexPath.row];
-        if([self insideAddedMembersArrayAlready:selectedMember]){
-            NSLog(@"Already selected, ya drangus!");
-            return;
-        }
-        [_addedMembersArray insertObject:selectedMember atIndex:0];
-        [_addedMembersTable reloadData];
-        [_addMembersTable reloadData];
-        //I really should have two types of cells, one for selected already, and one for not. And if it's been selected
-        //already, you shouldn't be able to click it, and it should look a little different.
-        return;
-    }
+//    if ([tableView isEqual:_addMembersTable]){
+//        NSDictionary *selectedMember = (NSDictionary *) [_prefixResults objectAtIndex:indexPath.row];
+//        if([self insideAddedMembersArrayAlready:selectedMember]){
+//            NSLog(@"Already selected, ya drangus!");
+//            return;
+//        }
+//        [_addedMembersArray insertObject:selectedMember atIndex:0];
+//        [_addedMembersTable reloadData];
+//        [_addMembersTable reloadData];
+//        //I really should have two types of cells, one for selected already, and one for not. And if it's been selected
+//        //already, you shouldn't be able to click it, and it should look a little different.
+//        return;
+//    }
     
 }
 
