@@ -22,6 +22,7 @@
 @property (strong,nonatomic) SessionManager *sharedManager;
 
 @property(strong,nonatomic) NSNumber *groupExistsBool;
+@property (weak, nonatomic) IBOutlet UITextField *groupNameField;
 
 @end
 
@@ -41,6 +42,8 @@
     
     self.addMembersTable.delegate = self;
     self.addedMembersTable.delegate = self;
+    
+    [self setUserArrayOnTyping:nil];
     
     [_sharedManager GET:@"getUsersGroupsUserList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *) responseObject;
@@ -164,12 +167,30 @@
 }
 
 -(NSDictionary *)serializeGroup{
-    NSDictionary *toReturn = @{};
-    [toReturn setValue:[_addedMembersArray copy] forKey:@"groupMembers"];
-    return nil;
+    NSMutableDictionary *serialized = [[NSMutableDictionary alloc] init];
+    [serialized setObject:[_addedMembersArray copy] forKey:@"groupMembers"];
+    [serialized setObject:_groupNameField.text forKey:@"groupName"];
+    NSDictionary *toReturn = [serialized copy];
+    return toReturn;
 }
 
 -(IBAction)buttonClicked:(id)sender{
+    if([_groupNameField.text length] != 0){
+        NSLog(@"Group is being created");
+        NSDictionary *serialized = [self serializeGroup];
+        [_sharedManager POST:@"createNewGroup" parameters:serialized success:^(NSURLSessionDataTask *task, id responseObject) {
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Group Created" message:@"Group successfully created." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {}];
+            
+            [alert addAction:defaultAction];
+
+            [self presentViewController:alert animated:YES completion:nil];
+        } failure:^(NSURLSessionDataTask *task, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    }
+    
 //    if(_createGroupButton.tag == 0 ){
 //        [_sharedManager GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>]
 //    }
