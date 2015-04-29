@@ -11,6 +11,8 @@
 #import "NetworkConstants.h"
 
 @interface PaymentsViewController ()
+@property (weak, nonatomic) IBOutlet UIButton *linkVenmoButton;
+@property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
 
 @end
 
@@ -19,18 +21,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-// TODO Add method: venmoLoggedIn to user
+
+    // TODO Add method: venmoLoggedIn to user
     BOOL loggedIn = [[User currentUser] isLoggedIn];
     
     if (loggedIn) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:kVENMO_AUTH_URL]];
+        [self linkVenmoPressed:nil];
+    } else {
+        [self.notificationLabel setHidden:YES];
+        [self.linkVenmoButton setHidden:YES];
     }
-   }
+}
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidAppear:(BOOL)animated {
+    
+    
+}
+
+- (IBAction)linkVenmoPressed:(id)sender {
+    NSString *url = [NSString stringWithFormat:@"%@%@", kVENMO_AUTH_URL, [[User currentUser] userId]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
 }
 
 /*

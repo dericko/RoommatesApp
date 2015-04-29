@@ -15,8 +15,6 @@
 
 + (User *)currentUser;
 - (User *)loginForUser:(NSDictionary *)userObject;
-- (NSString *)username;
-- (NSString *)userId;
 
 - (BOOL)isLoggedIn;
 - (void)logout;
