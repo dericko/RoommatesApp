@@ -77,7 +77,10 @@
     [data setValue:[[User currentUser] username] forKey:@"username"];
     [data setValue:_textField.text forKey:@"message"];
     [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"I wrote: %@\n", message]]];
-        
+    
+    // Send to server
+    NSLog(@"SEND TO SOCKET %@", @[[data copy]]);
+    
     // Send to socket
     [_socket emitObjc:@"send-message" withItems:@[[data copy]]];
     
