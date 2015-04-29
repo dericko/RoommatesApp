@@ -77,6 +77,10 @@
 
 - (void)sendMessage {
     
+    if ([_textField.text isEqualToString:@""]) {
+        return;
+    }
+    
     // Display to self
     NSLog(@"SEND MESSAGE CALLED");
     NSString *message = _textField.text;
@@ -87,6 +91,7 @@
     [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"I wrote: %@\n", message]]];
     
     // Send to server
+    NSLog(@"SEND TO SOCKET %@", @[[data copy]]);
     
     // Send to socket
     [_socket emitObjc:@"send-message" withItems:@[[data copy]]];
