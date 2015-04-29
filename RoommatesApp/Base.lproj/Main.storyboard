@@ -130,6 +130,51 @@
             <point key="canvasLocation" x="-701" y="2665"/>
         </scene>
         <!--Item-->
+        <scene sceneID="NkJ-D6-IUG">
+            <objects>
+                <viewController id="dKd-ud-srU" customClass="SettingsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YhT-Dl-SE0"/>
+                        <viewControllerLayoutGuide type="bottom" id="CCK-xr-3DQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KMQ-9F-HT6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="DG6-bT-8ZM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupMemberCell" id="yWe-5m-NTR">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yWe-5m-NTR" id="YcF-8n-uPH">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="DvK-TP-9b3"/>
+                    <toolbarItems>
+                        <barButtonItem title="Signout" id="4rx-d9-ens">
+                            <connections>
+                                <action selector="signoutPressed:" destination="dKd-ud-srU" id="ExZ-BP-Gx5"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="groupMemberTableView" destination="DG6-bT-8ZM" id="QST-Bg-5py"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X85-lN-97a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-694" y="2726"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="7xx-gT-eyd">
             <objects>
                 <viewController id="aiU-Ey-7EM" customClass="AddMembersViewController" sceneMemberID="viewController">
