@@ -151,7 +151,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="DvK-TP-9b3"/>
                     <toolbarItems>
-                        <barButtonItem title="Signout" id="4rx-d9-ens"/>
+                        <barButtonItem title="Signout" id="4rx-d9-ens">
+                            <connections>
+                                <action selector="signoutPressed:" destination="dKd-ud-srU" id="ExZ-BP-Gx5"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
