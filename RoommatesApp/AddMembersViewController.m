@@ -45,16 +45,16 @@
     
     [self setUserArrayOnTyping:nil];
     
-    [_sharedManager GET:@"getUsersGroupsUserList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [_sharedManager GET:@"getGroupMembers" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *) responseObject;
         _groupExistsBool = [responseDict objectForKey:@"isGroup"];
         NSLog(@"Group exists: %@", _groupExistsBool);
         if ([_groupExistsBool isEqualToNumber:@0]){
-            _createGroupButton.tag = 0;//group exists
+            _createGroupButton.tag = 0;//group doesn't exist
             _createGroupButton.titleLabel.text = @"Create Group";
         } else{
-            _createGroupButton.tag = 1;//group doesn't
-            NSArray *existingGroupMembers = [responseDict objectForKey:@"users"];
+            _createGroupButton.tag = 1;//group exists
+            NSArray *existingGroupMembers = [responseDict objectForKey:@"groupUsers"];
             _addedMembersArray = [NSMutableArray arrayWithArray:existingGroupMembers];
             _createGroupButton.titleLabel.text = @"Add Members";
         }
