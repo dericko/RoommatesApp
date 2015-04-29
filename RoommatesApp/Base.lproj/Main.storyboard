@@ -176,7 +176,7 @@
         <!--Item-->
         <scene sceneID="758-SX-pej">
             <objects>
-                <viewController id="xzI-YW-cCp" customClass="AddMembersViewController" sceneMemberID="viewController">
+                <viewController id="xzI-YW-cCp" customClass="SearchGroupViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bpf-sq-9O5"/>
                         <viewControllerLayoutGuide type="bottom" id="mtI-YQ-h3B"/>
@@ -238,8 +238,14 @@
                                     <action selector="buttonClicked:" destination="xzI-YW-cCp" eventType="touchUpInside" id="Mpo-DP-s6d"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Groups" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z8N-hc-LQT">
+                                <rect key="frame" x="16" y="28" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Members" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8a-Lz-up3">
-                                <rect key="frame" x="171" y="380" width="73" height="21"/>
+                                <rect key="frame" x="16" y="380" width="73" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
