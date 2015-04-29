@@ -10,10 +10,7 @@
 
 @interface User()
 
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *salt;
-@property (strong, nonatomic) NSString *hashCode;
-@property (strong, nonatomic) NSArray *groups;
+@property (strong, nonatomic) NSString *hashedPassword;
 
 @end
 
@@ -32,33 +29,15 @@
 
 - (User *)loginForUser:(NSDictionary *)userObject {
     self.username = [userObject valueForKey:@"username"];
-    self.salt = [userObject valueForKey:@"salt"];
-    self.hashCode = [userObject valueForKey:@"hash"];
-    self.groups = [userObject valueForKey:@"groups"];
+    self.userId = [userObject valueForKey:@"_id"];
+    self.hashedPassword = [userObject valueForKey:@"password"];
     return self;
-}
-
-- (NSString *)getUsername {
-    return self.username;
-}
-
-- (NSString *)getHash {
-    return self.hashCode;
-}
-
-- (NSString *)getSalt {
-    return self.salt;
-}
-
-- (NSArray *)getGroups {
-    return self.groups;
 }
 
 - (void)logout {
     self.username = nil;
-    self.salt = nil;
-    self.hashCode = nil;
-    self.groups = nil;
+    self.userId = nil;
+    self.hashedPassword = nil;
 }
 
 - (BOOL)isLoggedIn {

@@ -9,6 +9,7 @@
 #import "ChatViewController.h"
 #import <Socket_IO_Client_Swift/Socket_IO_Client_Swift-Swift.h>
 #import "NetworkConstants.h"
+#import "User.h"
 
 @interface ChatViewController ()
 
@@ -71,7 +72,7 @@
 - (IBAction)sendPressed:(id)sender {
     
     [self sendMessage];
-    
+
 }
 
 - (void)sendMessage {
@@ -79,26 +80,34 @@
     // Display to self
     NSLog(@"SEND MESSAGE CALLED");
     NSString *message = _textField.text;
+    NSMutableDictionary *data = [[NSMutableDictionary alloc] init];
+    [data setValue:[[User currentUser] userId] forKey:@"_id"];
+    [data setValue:[[User currentUser] username] forKey:@"username"];
+    [data setValue:_textField.text forKey:@"message"];
     [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"I wrote: %@\n", message]]];
     
     // Send to server
     
-    
     // Send to socket
-    [_socket emitObjc:@"send-message" withItems:@[message]];
+    [_socket emitObjc:@"send-message" withItems:@[[data copy]]];
     
     [_textField setText:@""];
 //    [_textField resignFirstResponder];
-    
-    
 }
 
 - (void)didRecieveData:(NSArray *)data {
-    NSString *message = [NSString stringWithFormat:@"%@", [[data firstObject] firstObject]];
+    NSDictionary *dataDict = [[data firstObject] firstObject];
+    NSLog(@"Returned: %@", dataDict);
+    
+    NSString *userId = [NSString stringWithFormat:@"%@", [dataDict objectForKey:@"_id"]];
+    NSString *username = [NSString stringWithFormat:@"%@", [dataDict objectForKey:@"username"]];
+    NSString *message = [NSString stringWithFormat:@"%@", [dataDict objectForKey:@"message"]];
     
     NSLog(@"Message: %@", message);
     
-    [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"received: %@\n", message]]];
+    if (![userId isEqualToString:[[User currentUser] userId]]) {
+        [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"%@: %@\n", username, message]]];
+    }
 }
 
 

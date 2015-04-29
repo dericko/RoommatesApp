@@ -23,6 +23,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    SessionManager *sharedManager = [SessionManager sharedManager];
+    [sharedManager GET:@"isUserPartOfGroup"
+            parameters: nil
+                success:^(NSURLSessionDataTask *task, id responseObject) {
+                    // Success
+                    NSLog(@"ABLE TO GET");
+                }
+                failure:^(NSURLSessionDataTask *task, NSError *error) {
+                    // Failure
+                    NSLog(@"UNABLE TO GET");
+                }];
 }
 
 -(NSMutableDictionary *)loginDictionary{
