@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C4345561AF1056200A9E199 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4345551AF1056200A9E199 /* SocketManager.m */; };
 		1C6696271AEF4D87004234EC /* AddMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6696261AEF4D87004234EC /* AddMembersViewController.m */; };
 		CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */; };
 		CB876DA31AEBF74F006761A5 /* PaymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876DA21AEBF74F006761A5 /* PaymentsViewController.m */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1C4345541AF1056200A9E199 /* SocketManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
+		1C4345551AF1056200A9E199 /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
 		1C6696251AEF4D87004234EC /* AddMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMembersViewController.h; sourceTree = "<group>"; };
 		1C6696261AEF4D87004234EC /* AddMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMembersViewController.m; sourceTree = "<group>"; };
 		3A0E96B58B971C18B2685C6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +242,8 @@
 			children = (
 				CBF019D21AEBDDA9008F5DB5 /* SessionManager.h */,
 				CBF019D31AEBDDA9008F5DB5 /* SessionManager.m */,
+				1C4345541AF1056200A9E199 /* SocketManager.h */,
+				1C4345551AF1056200A9E199 /* SocketManager.m */,
 				CB946BB21AEC9F61002D8B4B /* NetworkConstants.h */,
 			);
 			name = Networking;
@@ -404,6 +409,7 @@
 				1C6696271AEF4D87004234EC /* AddMembersViewController.m in Sources */,
 				CBF019941AEBCD7B008F5DB5 /* main.m in Sources */,
 				CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */,
+				1C4345561AF1056200A9E199 /* SocketManager.m in Sources */,
 				CBF019BE1AEBD537008F5DB5 /* LoginViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

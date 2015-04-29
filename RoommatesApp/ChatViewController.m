@@ -26,33 +26,21 @@
     
     _textField.delegate = self;
     
-    [self setupSocket];
+    // Get shared instance
+    _socket = [SocketManager sharedManager].io;
+    
+    // Add handlers
+    [_socket on:@"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+        [_socket on:@"send-message" callback:^(NSArray *data, void (^ack)(NSArray*)){
+            NSLog(@"GOT MSG RESPONSE");
+            [self didRecieveData:data];
+        }];
+    }];
     
     UITapGestureRecognizer* tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
     [tapBackground setNumberOfTapsRequired:1];
     [self.view addGestureRecognizer:tapBackground];
     [self.chatView addGestureRecognizer:tapBackground];
-}
-
-
-- (void)setupSocket {
-    _socket = [[SocketIOClient alloc] initWithSocketURL:kBASE_URL options:nil];
-    
-    // Socket connected
-    [_socket on:@"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
-        NSLog(@"socket connected");
-        
-        
-        // Listen to socket
-        [_socket on:@"send-message" callback:^(NSArray *data, void (^ack)(NSArray*)){
-            NSLog(@"GOT SOCKET RESPONSE");
-            [self didRecieveData:data];
-        }];
-    }];
-    
-    
-    [_socket connect];
-    
 }
 
 #pragma mark - UITextField Delegate
@@ -85,9 +73,7 @@
     [data setValue:[[User currentUser] username] forKey:@"username"];
     [data setValue:_textField.text forKey:@"message"];
     [_chatView setText:[_chatView.text stringByAppendingString:[NSString stringWithFormat:@"I wrote: %@\n", message]]];
-    
-    // Send to server
-    
+        
     // Send to socket
     [_socket emitObjc:@"send-message" withItems:@[[data copy]]];
     

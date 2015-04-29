@@ -7,7 +7,7 @@
 //
 
 #import "LoginViewController.h"
-#import "SessionManager.h"
+#import "NetworkConstants.h"
 #import "User.h"
 #define safeSet(d,k,v) if (v) d[k] = v;
 
@@ -24,17 +24,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    SessionManager *sharedManager = [SessionManager sharedManager];
-    [sharedManager GET:@"isUserPartOfGroup"
-            parameters: nil
-                success:^(NSURLSessionDataTask *task, id responseObject) {
-                    // Success
-                    NSLog(@"ABLE TO GET");
-                }
-                failure:^(NSURLSessionDataTask *task, NSError *error) {
-                    // Failure
-                    NSLog(@"UNABLE TO GET");
-                }];
+//    SessionManager *sharedManager = [SessionManager sharedManager];
+//    [sharedManager GET:@"isUserPartOfGroup"
+//            parameters: nil
+//                success:^(NSURLSessionDataTask *task, id responseObject) {
+//                    // Success
+//                    NSLog(@"ABLE TO GET");
+//                }
+//                failure:^(NSURLSessionDataTask *task, NSError *error) {
+//                    // Failure
+//                    NSLog(@"UNABLE TO GET");
+//                }];
 }
 
 -(NSMutableDictionary *)loginDictionary{
@@ -45,20 +45,34 @@
 }
 
 - (IBAction)loginPressed:(id)sender {
+    [self login];
+}
 
-    NSLog(@"Pressed");
-    
+- (void) login {
+    NSLog(@"Login attempt");
     SessionManager *sharedManager = [SessionManager sharedManager];
     
     [sharedManager POST:@"login"
              parameters:[self loginDictionary]
                 success:^(NSURLSessionDataTask *task, id responseObject) {
-                    // Success
+                    
+                    // Inform server
                     NSDictionary *responseDict = (NSDictionary *)responseObject;
                     NSLog(@"RES AS DICT\n%@", [responseDict description]);
                     User *user = [User currentUser];
                     [user loginForUser:responseDict];
                     _errorLabel.text = @"SUCCESS!";
+                    
+                    // Setup shared socket
+                    SocketIOClient *io =  [SocketManager sharedManager].io;
+                    
+                    [io on:@"connect" callback: ^(NSArray* data, void (^ack)(NSArray*)) {
+                        [io emitObjc:@"log-in" withItems:@[responseDict]];
+                        
+                    }];
+                    // Connect socket
+                    [io connect];
+                    
                     [self performSegueWithIdentifier:@"LoadHomepage" sender:self];
                 }
                 failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -66,6 +80,13 @@
                     NSLog(@"FAILURE : %@", error);
                     _errorLabel.text = @"ERROR";
                 }];
+}
+
+#pragma mark - UITextField Delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [self login];
+    return YES;
 }
 
 /*
