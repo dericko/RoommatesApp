@@ -190,10 +190,6 @@
             NSLog(@"Error: %@", error);
         }];
     }
-    
-//    if(_createGroupButton.tag == 0 ){
-//        [_sharedManager GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>]
-//    }
 }
 
 
