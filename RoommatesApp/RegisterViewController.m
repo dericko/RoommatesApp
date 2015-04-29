@@ -29,7 +29,7 @@
     for (NSString* user in users) {
         _usernameField.text = user;
         _passwordField.text = @"password";
-        [self registerPressed:NULL];
+        [self registerPressed:nil];
     }
 }
 
