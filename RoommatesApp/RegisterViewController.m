@@ -24,6 +24,15 @@
 
 @implementation RegisterViewController
 
+- (void)autoload {
+    NSArray *users = @[@"Bonnie", @"Clyde", @"Fillmore", @"Johnson", @"Lester", @"Sallie", @"Anisha", @"Yassein", @"Aaron", @"Danny", @"Dylan", @"Darlene", @"Kelly", @"Santosh", @"Stewie", @"Markos", @"Stucky", @"Charlotte", @"Charlie", @"Chuck", @"Brianne", @"Lynkstra", @"Tobias", @"Maurice", @"Starlet", @"Scarlett", @"Aenaes", @"Phillip", @"Seymour", @"Stan", @"Tori", @"Victor", @"Carl", @"Dilbert", @"Edward", @"Franklin", @"Grant", @"Gerald", @"Hank", @"Izzy", @"Ishmael", @"Jacob", @"Jackie", @"Jordan", @"Josiah", @"Klyde", @"Kent", @"Leonard", @"Norbet", @"Orien", @"Oberon", @"Paulina", @"Patty", @"Susan", @"Tyrone", @"Xena", @"Yuri", @"Zed"];
+    for (NSString* user in users) {
+        _usernameField.text = user;
+        _passwordField.text = @"password";
+        [self registerPressed:NULL];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
