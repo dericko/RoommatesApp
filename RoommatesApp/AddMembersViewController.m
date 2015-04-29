@@ -84,7 +84,10 @@
     return NO;
 }
 
+- (IBAction)signoutPressed:(id)sender {
+}
 
+# pragma mark - Table View Delegate
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;  //EITHER WAY

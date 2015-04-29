@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +14,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WIN-CM-dty"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="UsH-Ss-CER">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uVb-CQ-gps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-701" y="1869"/>
+            <point key="canvasLocation" x="-1417" y="1293"/>
         </scene>
         <!--Chat-->
         <scene sceneID="5w7-Jj-z9K">
@@ -237,6 +237,14 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="KdO-oq-tHq"/>
+                    <toolbarItems>
+                        <barButtonItem title="Signout" id="AwV-px-6G8">
+                            <connections>
+                                <action selector="signoutPressed:" destination="aiU-Ey-7EM" id="3hM-RN-zO3"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="addMembersTable" destination="ylW-eg-adf" id="UFS-UI-fkq"/>
@@ -244,12 +252,11 @@
                         <outlet property="createGroupButton" destination="tqa-QR-D8v" id="3C6-ZD-Pfs"/>
                         <outlet property="groupNameField" destination="nOW-Nh-E75" id="U6X-rg-9SU"/>
                         <outlet property="searchBar" destination="asX-Hr-QlZ" id="KGV-3J-X6o"/>
-                        <segue destination="wQt-FY-07l" kind="modal" identifier="MadeGroup" id="SpX-yW-I6H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPd-sx-aYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2360" y="3566"/>
+            <point key="canvasLocation" x="-168" y="2726"/>
         </scene>
         <!--Item-->
         <scene sceneID="758-SX-pej">
@@ -548,7 +555,6 @@
                         <outlet property="passwordField" destination="s40-Hm-E46" id="GW5-r3-z8j"/>
                         <outlet property="usernameField" destination="K6v-zI-Ezz" id="p07-50-Cp8"/>
                         <segue destination="wQt-FY-07l" kind="modal" identifier="LoadHomepage" id="soU-qQ-gkl"/>
-                        <segue destination="aiU-Ey-7EM" kind="custom" identifier="CreateGroup" id="gFG-Oz-lOC"/>
                         <segue destination="xzI-YW-cCp" kind="custom" id="Kr5-By-4K6"/>
                     </connections>
                 </viewController>
