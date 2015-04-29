@@ -9,12 +9,19 @@
 #import "AddMembersViewController.h"
 #import "SessionManager.h"
 
+
+//DERICK, YOU'VE CONVINCED ME, THIS IS A WHOLE BIG CAN OF WORMS I DON'T WANT TO DO.
+
 @interface AddMembersViewController ()
 @property(strong,nonatomic) IBOutlet UITableView *addMembersTable;
 @property(strong,nonatomic) IBOutlet UITableView *addedMembersTable;
 @property(strong,nonatomic) NSMutableArray *prefixResults;
 @property(strong, nonatomic) NSMutableArray *addedMembersArray;
 @property IBOutlet UITextField *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *createGroupButton;
+@property (strong,nonatomic) SessionManager *sharedManager;
+
+@property(strong,nonatomic) NSNumber *groupExistsBool;
 
 @end
 
@@ -22,6 +29,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.sharedManager = [SessionManager sharedManager];
+
+    
     _addedMembersArray = [NSMutableArray arrayWithArray: @[]];
     _prefixResults = [NSMutableArray arrayWithArray: @[]];
     
@@ -30,6 +41,28 @@
     
     self.addMembersTable.delegate = self;
     self.addedMembersTable.delegate = self;
+    
+    [_sharedManager GET:@"getUsersGroupsUserList" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *responseDict = (NSDictionary *) responseObject;
+        _groupExistsBool = [responseDict objectForKey:@"isGroup"];
+        NSLog(@"Group exists: %@", _groupExistsBool);
+        if ([_groupExistsBool isEqualToNumber:@0]){
+            _createGroupButton.tag = 0;//group exists
+            _createGroupButton.titleLabel.text = @"Create Group";
+        } else{
+            _createGroupButton.tag = 1;//group doesn't
+            NSArray *existingGroupMembers = [responseDict objectForKey:@"users"];
+            _addedMembersArray = [NSMutableArray arrayWithArray:existingGroupMembers];
+            _createGroupButton.titleLabel.text = @"Add Members";
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"FAILURE: %@", error);
+    }];
+
+    
+    
+    
+    
     // Do any additional setup after loading the view.
 }
 
@@ -40,6 +73,11 @@
 
 
 -(BOOL)insideAddedMembersArrayAlready:(NSDictionary *)member{
+    for(NSDictionary *object in _addedMembersArray){
+        if ([member isEqualToDictionary:object]){
+            return YES;
+        }
+    }
     return NO;
 }
 
@@ -50,7 +88,6 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"numrows");
     if ([tableView isEqual:_addedMembersTable]){
         return [_addedMembersArray count];
     } else{
@@ -61,7 +98,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = nil;
     NSDictionary *selectedMember = nil;
-    NSLog(@"Cell");
     if ([tableView isEqual:_addMembersTable]){
 //        NSDictionary *selectedMember = [_prefixResults ob]
         selectedMember = [_prefixResults objectAtIndex:indexPath.row];
@@ -97,7 +133,7 @@
     if ([tableView isEqual:_addMembersTable]){
         NSDictionary *selectedMember = (NSDictionary *) [_prefixResults objectAtIndex:indexPath.row];
         if([self insideAddedMembersArrayAlready:selectedMember]){
-            NSLog(@"Already selected, ya drangus! Shouldn't happen, really");
+            NSLog(@"Already selected, ya drangus!");
             return;
         }
         [_addedMembersArray insertObject:selectedMember atIndex:0];
@@ -112,15 +148,12 @@
 
 -(IBAction)setUserArrayOnTyping:(id)sender{
 
-    SessionManager *sharedManager = [SessionManager sharedManager];
 
     NSString *prefixText = _searchBar.text;
     NSMutableDictionary *toSerialize = [[NSMutableDictionary alloc] init];
     [toSerialize setValue:prefixText forKey:@"prefix"];
-    [sharedManager GET:@"getUsersWithPrefix" parameters:toSerialize success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"Success");
+    [_sharedManager GET:@"getUsersWithPrefix" parameters:toSerialize success:^(NSURLSessionDataTask *task, id responseObject) {
         NSArray *responseArray = (NSArray *)responseObject;
-        NSLog(@"%@", responseArray);
         _prefixResults = [NSMutableArray arrayWithArray:responseArray];
         [_addMembersTable reloadData];
         [_addedMembersTable reloadData];
@@ -128,8 +161,18 @@
         NSLog(@"FAILURE: %@", error);
     }];
     
-    
-    
+}
+
+-(NSDictionary *)serializeGroup{
+    NSDictionary *toReturn = @{};
+    [toReturn setValue:[_addedMembersArray copy] forKey:@"groupMembers"];
+    return nil;
+}
+
+-(IBAction)buttonClicked:(id)sender{
+//    if(_createGroupButton.tag == 0 ){
+//        [_sharedManager GET:<#(NSString *)#> parameters:<#(id)#> success:<#^(NSURLSessionDataTask *task, id responseObject)success#> failure:<#^(NSURLSessionDataTask *task, NSError *error)failure#>]
+//    }
 }
 
 

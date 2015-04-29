@@ -34,6 +34,14 @@
                     <view key="view" contentMode="scaleToFill" id="lAe-qd-kSu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Are you validated" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dci-IO-F5w">
+                                <rect key="frame" x="141" y="111" width="133" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Payments" id="Rae-vk-rRX"/>
@@ -80,7 +88,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Added Members" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgk-il-Yr7">
-                                <rect key="frame" x="96" y="28" width="128" height="21"/>
+                                <rect key="frame" x="16" y="28" width="128" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -115,6 +123,14 @@
                                     <action selector="setUserArrayOnTyping:" destination="aiU-Ey-7EM" eventType="editingChanged" id="h8O-fw-36w"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqa-QR-D8v">
+                                <rect key="frame" x="152" y="24" width="168" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="DEFAULT">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -126,12 +142,13 @@
                     <connections>
                         <outlet property="addMembersTable" destination="ylW-eg-adf" id="UFS-UI-fkq"/>
                         <outlet property="addedMembersTable" destination="xKP-IL-S1Z" id="yZT-5y-Jbf"/>
+                        <outlet property="createGroupButton" destination="tqa-QR-D8v" id="3C6-ZD-Pfs"/>
                         <outlet property="searchBar" destination="asX-Hr-QlZ" id="KGV-3J-X6o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aPd-sx-aYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1383" y="2961"/>
+            <point key="canvasLocation" x="-989" y="3469"/>
         </scene>
         <!--Chat-->
         <scene sceneID="jla-f1-FHH">
