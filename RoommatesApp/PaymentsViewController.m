@@ -13,6 +13,12 @@
 @interface PaymentsViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *linkVenmoButton;
 @property (weak, nonatomic) IBOutlet UILabel *notificationLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UILabel *usernameTag;
+@property (weak, nonatomic) IBOutlet UILabel *balanceTag;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (strong, nonatomic) NSDictionary *venmoInfo;
 
 @end
 
@@ -23,19 +29,58 @@
     // Do any additional setup after loading the view.
 
     // TODO Add method: venmoLoggedIn to user
-    BOOL loggedIn = [[User currentUser] isLoggedIn];
+    [self linkVenmoPressed:nil];
+    [self askForSignup];
+//    [self venmoHasBeenValidated];
     
-    if (loggedIn) {
-        [self linkVenmoPressed:nil];
-    } else {
-        [self.notificationLabel setHidden:YES];
-        [self.linkVenmoButton setHidden:YES];
-    }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
+- (void)venmoHasBeenValidated{
+    
+    [[SessionManager sharedManager]
+     GET:@"hasBeenVenmoValidated"
+     parameters:nil
+     success:^(NSURLSessionDataTask *task, id responseObject) {
+        NSDictionary *responseDict = (NSDictionary *) responseObject;
+         // VALID
+         if ([[responseDict objectForKey:@"answer"] isEqualToNumber:@1]) {
+             
+            _venmoInfo = [responseDict objectForKey:@"venmo"];
+             NSLog(@"@%", _venmoInfo);
+             [self displayVenmoInfo];
+         
+         // NOT VALID
+         } else {
+             [self linkVenmoPressed:nil];
+             [self askForSignup];
+         }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        NSLog(@"FAILURE: %@", error);
+    }];
     
     
+}
+
+- (void) displayVenmoInfo {
+    [self.imageView setHidden:NO];
+    [self.usernameLabel setHidden: NO];
+    [self.usernameTag setHidden:NO];
+    [self.balanceLabel setHidden:NO];
+    [self.balanceTag setHidden:NO];
+    
+    [self.notificationLabel setHidden:YES];
+    [self.linkVenmoButton setHidden:YES];
+}
+
+- (void) askForSignup {
+    [self.notificationLabel setHidden:NO];
+    [self.linkVenmoButton setHidden:NO];
+    
+    [self.imageView setHidden:YES];
+    [self.usernameLabel setHidden:YES];
+    [self.usernameTag setHidden:YES];
+    [self.balanceLabel setHidden:YES];
+    [self.balanceTag setHidden:YES];
 }
 
 - (IBAction)linkVenmoPressed:(id)sender {

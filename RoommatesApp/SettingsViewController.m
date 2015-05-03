@@ -46,6 +46,10 @@
      parameters:[self registerDictionary]
      success:^(NSURLSessionDataTask *task, id responseObject) {
          NSDictionary *responseDict = (NSDictionary *) responseObject;
+         BOOL foundGroup = [responseDict objectForKey:@"isGroup"];
+         if (!foundGroup) {
+             [self performSegueWithIdentifier:@"LoadHomepage" sender:self];
+         }
          NSArray *existingGroupMembers = [responseDict objectForKey:@"groupUsers"];
          NSLog(@"group members: %@", responseObject);
          _groupMembers = [NSMutableArray arrayWithArray:existingGroupMembers];

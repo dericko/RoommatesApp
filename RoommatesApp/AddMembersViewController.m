@@ -58,6 +58,7 @@
             _addedMembersArray = [NSMutableArray arrayWithArray:existingGroupMembers];
             _createGroupButton.titleLabel.text = @"Add Members";
         }
+        [_addedMembersTable reloadData];
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         NSLog(@"FAILURE: %@", error);
     }];
