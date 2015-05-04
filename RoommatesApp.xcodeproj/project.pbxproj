@@ -10,6 +10,7 @@
 		1C3498781AF120C400229E07 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C3498771AF120C400229E07 /* SettingsViewController.m */; };
 		1C4345561AF1056200A9E199 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C4345551AF1056200A9E199 /* SocketManager.m */; };
 		1C6696271AEF4D87004234EC /* AddMembersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C6696261AEF4D87004234EC /* AddMembersViewController.m */; };
+		1CF1E7281AF72216008335DC /* readme.md in Sources */ = {isa = PBXBuildFile; fileRef = 1CF1E7271AF72216008335DC /* readme.md */; };
 		CB2E25331AF0ACAA00E204D8 /* SearchGroupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2E25321AF0ACAA00E204D8 /* SearchGroupViewController.m */; };
 		CB2E25361AF10BC300E204D8 /* TableChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB2E25351AF10BC300E204D8 /* TableChatViewController.m */; };
 		CB876DA01AEBF6EE006761A5 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB876D9F1AEBF6EE006761A5 /* ChatViewController.m */; };
@@ -45,6 +46,7 @@
 		1C4345551AF1056200A9E199 /* SocketManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
 		1C6696251AEF4D87004234EC /* AddMembersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddMembersViewController.h; sourceTree = "<group>"; };
 		1C6696261AEF4D87004234EC /* AddMembersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddMembersViewController.m; sourceTree = "<group>"; };
+		1CF1E7271AF72216008335DC /* readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = readme.md; sourceTree = "<group>"; };
 		3A0E96B58B971C18B2685C6D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82C4425AAE077C96F02C1E4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		835672F1575F2F399AA2B96C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 				CBF0199B1AEBCD7B008F5DB5 /* Main.storyboard */,
 				CBF019A01AEBCD7B008F5DB5 /* LaunchScreen.xib */,
 				CBF019911AEBCD7B008F5DB5 /* Supporting Files */,
+				1CF1E7271AF72216008335DC /* readme.md */,
 			);
 			path = RoommatesApp;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				1C4345561AF1056200A9E199 /* SocketManager.m in Sources */,
 				CBF019BE1AEBD537008F5DB5 /* LoginViewController.m in Sources */,
 				CB2E25361AF10BC300E204D8 /* TableChatViewController.m in Sources */,
+				1CF1E7281AF72216008335DC /* readme.md in Sources */,
 				1C3498781AF120C400229E07 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,7 +508,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -539,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

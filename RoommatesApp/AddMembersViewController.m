@@ -31,6 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    _createGroupButton.enabled = NO;
+    _createGroupButton.alpha = 0.5;
+
+    
     self.sharedManager = [SessionManager sharedManager];
 
     
@@ -45,7 +49,10 @@
     
     [self setUserArrayOnTyping:nil];
     
-    [_sharedManager GET:@"getGroupMembers" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [_sharedManager
+     GET:@"getGroupMembers"
+     parameters:nil
+     success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *) responseObject;
         _groupExistsBool = [responseDict objectForKey:@"isGroup"];
         NSLog(@"Group exists: %@", _groupExistsBool);
@@ -73,6 +80,17 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)enableButton:(id)sender{
+    if([_groupNameField.text isEqualToString:@""]){
+        _createGroupButton.enabled = NO;
+        _createGroupButton.alpha = 0.5;
+    }
+    else{
+        _createGroupButton.enabled = YES;
+        _createGroupButton.alpha = 1.0;
+    }
 }
 
 
@@ -185,14 +203,31 @@
         [_sharedManager POST:@"createNewGroup" parameters:serialized success:^(NSURLSessionDataTask *task, id responseObject) {
             UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Group Created" message:@"Group successfully created." preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
-                                                                  handler:^(UIAlertAction * action) {}];
+            handler:^(UIAlertAction * action) {}];
             
             [alert addAction:defaultAction];
 
             [self presentViewController:alert animated:YES completion:nil];
         } failure:^(NSURLSessionDataTask *task, NSError *error) {
             NSLog(@"Error: %@", error);
+
+            UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Invalid Request" message:@"One of these people is already in a group" preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                                  handler:^(UIAlertAction * action) {_addedMembersArray = [NSMutableArray arrayWithArray:@[]];
+                                                                      [_addedMembersTable reloadData];
+                                                                  }];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
         }];
+    }
+    else{
+        UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Enter Group Name" message:@"Enter Group Name" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                              handler:^(UIAlertAction * action) {}];
+        
+        [alert addAction:defaultAction];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 

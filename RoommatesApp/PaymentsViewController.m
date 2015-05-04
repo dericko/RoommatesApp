@@ -27,31 +27,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // Hide everything initially...
+    [self.notificationLabel setHidden:YES];
+    [self.linkVenmoButton setHidden:YES];
+    
+    [self.imageView setHidden:YES];
+    [self.usernameLabel setHidden:YES];
+    [self.usernameTag setHidden:YES];
+    [self.balanceLabel setHidden:YES];
+    [self.balanceTag setHidden:YES];
 
-    // TODO Add method: venmoLoggedIn to user
-    [self linkVenmoPressed:nil];
-    [self askForSignup];
-//    [self venmoHasBeenValidated];
+    
+    [self venmoHasBeenValidated];
+    
+    // Listen for entering foreground
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterForeground:) name:UIApplicationWillEnterForegroundNotification object:nil];
     
 }
 
+- (void)applicationWillEnterForeground:(NSNotification*)notification {
+    [self venmoHasBeenValidated];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self venmoHasBeenValidated];
+}
+
 - (void)venmoHasBeenValidated{
+    self.notificationLabel.text = @"Getting venmo info...";
+    [self.notificationLabel setHidden:NO];
     
     [[SessionManager sharedManager]
      GET:@"hasBeenVenmoValidated"
      parameters:nil
      success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseDict = (NSDictionary *) responseObject;
+         NSLog(@"responseDict: %@", responseDict);
+
          // VALID
          if ([[responseDict objectForKey:@"answer"] isEqualToNumber:@1]) {
              
-            _venmoInfo = [responseDict objectForKey:@"venmo"];
-             NSLog(@"@%", _venmoInfo);
+             _venmoInfo = [responseDict objectForKey:@"venmo"];
+             NSLog(@"Venmo info: %@", _venmoInfo);
              [self displayVenmoInfo];
          
          // NOT VALID
          } else {
-             [self linkVenmoPressed:nil];
              [self askForSignup];
          }
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
@@ -62,6 +85,8 @@
 }
 
 - (void) displayVenmoInfo {
+    
+    // Setup buttons
     [self.imageView setHidden:NO];
     [self.usernameLabel setHidden: NO];
     [self.usernameTag setHidden:NO];
@@ -70,9 +95,20 @@
     
     [self.notificationLabel setHidden:YES];
     [self.linkVenmoButton setHidden:YES];
+    
+    
+    // Assign fields
+    self.balanceLabel.text = [NSString stringWithFormat:@"$%@", [_venmoInfo valueForKey:@"balance"]];
+    self.usernameLabel.text = [_venmoInfo valueForKey:@"username"];
+
+    // TODO: Set image async
+//    NSString *ImageURL = [_venmoInfo valueForKey:@"profile_picture_url"];
+//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
+//    _imageView.image = [UIImage imageWithData:imageData];
 }
 
 - (void) askForSignup {
+    self.notificationLabel.text = @"Please sign in with venmo";
     [self.notificationLabel setHidden:NO];
     [self.linkVenmoButton setHidden:NO];
     
@@ -86,6 +122,7 @@
 - (IBAction)linkVenmoPressed:(id)sender {
     NSString *url = [NSString stringWithFormat:@"%@%@", kVENMO_AUTH_URL, [[User currentUser] userId]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]];
+//    self.tabBarController.selectedIndex = 1;
 }
 
 /*
